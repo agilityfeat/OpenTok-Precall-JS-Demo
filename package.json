@@ -1,0 +1,16 @@
+{
+  "name": "OpenTok-Precall-JS-Demo",
+  "version": "0.0.1",
+  "description": "A packaged foo fooer for fooing foos",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeanlescure/OpenTok-Precall-JS-Demo"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "opentok": "^2.3.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
