@@ -37,7 +37,7 @@ To configure and test the app:
 
    You can get your API key at the [OpenTok dashboard](https://dashboard.tokbox.com/).
 
-2. At the top of the server.js file, set the following to tour OpenTok API and your OpenTok Secret:
+2. At the top of the server.js file, set the following to your OpenTok API and your OpenTok Secret:
   
    ```
    var opentok = new OpenTok(API_KEY, SECRET);
