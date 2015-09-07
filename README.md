@@ -69,7 +69,7 @@ To configure and test the app:
    
 7. The app will initiate a session on your browser where you'll have to grant access to your camera and microphone again (this is due to using two separate sessions for pre-call and actual call).
 
-*NOTE:* Other peers can join the session as long as they access the client from the same server, there's a live example on heroku:
+**NOTE:** Other peers can join the session as long as they access the client from the same server, there's a live example on heroku:
 
 [http://tokbox-quality.herokuapp.com](http://tokbox-quality.herokuapp.com)
 
