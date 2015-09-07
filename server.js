@@ -112,5 +112,5 @@ function start_server(){
     res.send(JSON.stringify(response));
   });
 
-  server.listen(80);
+  server.listen(process.env.PORT || 3000);
 }
