@@ -1,59 +1,75 @@
-OpenTok.js Pre-Call Test Sample
+OpenTok.js Pre-Call Server/Client Demo
 ===============================
 
-This sample shows how to use OpenTok.js to determine the appropriate audio and video settings
-to use in publishing a stream to an OpenTok session. To do this, the app publishes a test
-stream to the session and then uses the API to check the quality of that stream. Based on the
-quality, the app determines what the client can successfully publish to
-the session:
+This demo is based on the original test sample which shows how to use OpenTok.js to determine the appropriate audio and video settings. The original can be found at:
 
-* The client can publish an audio-video stream at the default resolution (640-by-480 pixels).
+[https://github.com/opentok/opentok-precall-test/tree/master/js-sample](https://github.com/opentok/opentok-precall-test/tree/master/js-sample)
+
+This demo consists of a NodeJS server and a Browser client.
+
+The server has two functions, it serves the client files, and it generates a unique session and multiple tokens which can be retrieved via RESTful calls.
+
+The client app publishes a test stream to the session and then uses the Pre-call API to check the quality of that stream. Based on the quality, the app determines what the client can successfully publish to the session:
+
+* The client can publish an audio-video stream at the default resolution.
 
 * The client can publish an audio-only stream.
 
 * The client is unable to publish.
 
-The sample app only subscribes to the test stream. It does not subscribe to other streams in the
+The pre-call quality session only subscribes to the test stream. It does not subscribe to other streams in the
 session.
 
 ## Testing the app
 
 To configure and test the app:
 
-1. At the top of the app.js file, set the following to your OpenTok API, a session ID, and a token
-   for that session:
+1. At the top of the app.js file, set the following to your OpenTok API:
 
    ```
    var API_KEY = '';
-   var SESSION_ID = '';
-   var TOKEN = '';
    ```
 
-   Note that the app requires that the session that uses the routed media mode -- one that uses
-   the [OpenTok Media Router](https://tokbox.com/developer/guides/create-session/#media-mode).
+   Note that the pre-call requires that the session that uses the routed media mode -- one that uses the [OpenTok Media Router](https://tokbox.com/developer/guides/create-session/#media-mode).
    A routed session is required to get statistics for the stream published by the local client.
 
-   You can get your API key as well as a test session ID and token at the
-   [OpenTok dashboard](https://dashboard.tokbox.com/). However, in a shipping application, use
-   one of the [OpenTok server SDKs](https://tokbox.com/developer/sdks/server/) to generate a
-   session ID and token.
+   You can get your API key at the [OpenTok dashboard](https://dashboard.tokbox.com/).
 
-2. Install the sample code on a web server. Note that you must load the code from a web server.
-   Browsers do not support WebRTC video in pages loaded from a file:// URL.
+2. At the top of the server.js file, set the following to tour OpenTok API and your OpenTok Secret:
+  
+   ```
+   var opentok = new OpenTok(API_KEY, SECRET);
+   ```
+   
+   You can also get your Secret key at the [OpenTok dashboard](https://dashboard.tokbox.com/).
+   
+3. On a terminal go to the root of this folder and run the following:
 
-3. In a web browser, navigate to the index.html page for the app.
+   ```
+   $ npm install
+   ...
+   $ npm start
+   ```
+   
+4. In a web browser, navigate to the [http://localhost:3000](http://localhost:3000) page for the app.
 
-4. Grant the page access to your camera and microphone.
+5. Grant the page access to your camera and microphone.
 
-5. The app uses a test stream to determine the client's ability to publish an stream that has a
+6. The app uses a test stream to determine the client's ability to publish an stream that has a
    640-by-480-pixel video. At the end of the test it reports one of the following:
 
    * You're all set -- your client can publish an audio-video stream that uses
      640-by-480-pixel video.
 
-   * Your bandwidth is too low for audio.
-
    * Your bandwidth can support audio only.
+
+   * Your bandwidth is too low for audio.
+   
+7. The app will initiate a session on your browser where you'll have to grant access to your camera and microphone again (this is due to using two separate sessions for pre-call and actual call).
+
+** NOTE: ** Other peers can join the session as long as they access the client from the same server, there's a live example on heroku:
+
+[http://tokbox-quality.herokuapp.com](http://tokbox-quality.herokuapp.com)
 
 ## Understanding the code
 
