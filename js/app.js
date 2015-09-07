@@ -7,7 +7,7 @@ var TEST_TIMEOUT_MS = 5000; // 15 seconds
 var publisherEl = document.createElement('div');
 var subscriberEl = document.createElement('div');
 
-var z;
+var session;
 var publisher;
 var subscriber;
 var statusContainerEl;
