@@ -2,7 +2,10 @@ var fs = require('fs');
 var express = require('express');
 var server = express();
 var OpenTok = require('opentok');
-var opentok = new OpenTok('45334512', '3d08d435640b7ab39ef62a2d4872ef8ed128a852');
+
+//Replace this with your OpenTok API key and OpenTok Secret
+var opentok = new OpenTok('API_KEY', 'SECRET');
+
 var SESSION_ID;
 var QUALITY_SESSION_ID;
 

@@ -1,4 +1,4 @@
-var API_KEY = '45334512'; //Replace this with your OpenTok API key
+var API_KEY = 'API_KEY'; //Replace this with your OpenTok API key
 var SESSION_ID = ''; // Will be retrieved via AJAX
 var TOKEN = ''; // Will be retrieved via AJAX
 
