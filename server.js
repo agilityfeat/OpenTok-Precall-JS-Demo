@@ -112,5 +112,5 @@ function start_server(){
     res.send(JSON.stringify(response));
   });
 
-  server.listen(3000);
+  server.listen(80);
 }
