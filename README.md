@@ -1,6 +1,8 @@
 OpenTok.js Pre-Call Server/Client Demo
 ===============================
 
+![Demo of app in Heroku](https://media.giphy.com/media/l41lOF1nKF4LLY412/200.gif)
+
 This demo is based on the original test sample which shows how to use OpenTok.js to determine the appropriate audio and video settings. The original can be found at:
 
 [https://github.com/opentok/opentok-precall-test/tree/master/js-sample](https://github.com/opentok/opentok-precall-test/tree/master/js-sample)
